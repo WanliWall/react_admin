@@ -1,7 +1,8 @@
+import React from 'react'
 import { Redirect } from 'react-router-dom'
 import { Card, Form, Input, Button } from 'antd'
 import { userLogin } from '../../api/user'
-import storageUtils from '../../utils/storeageUtils'
+import { setToken, getToken } from '../../utils/auth'
 import './login.less'
 
 const layout = {
@@ -18,7 +19,7 @@ const tailLayout = {
     span: 6
   }
 }
-const user = storageUtils.get('user_key')
+const user = getToken()
 
 const Login = (props) => {
   const onFinish = (values) => {
@@ -27,12 +28,14 @@ const Login = (props) => {
       name: values.username,
       password: values.password
     }).then(res => {
-      storageUtils.save('user_key', res.data.data)
-      props.history.replace('/')
+      console.log(res)
+      setToken(res.data.data.name)
+      // history.push('/')
+      console.log('到首页')
     })
   }
 
-  if(user && user.id) {
+  if(user) {
     return <Redirect to='/'/>
   }
   
