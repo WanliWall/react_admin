@@ -1,5 +1,5 @@
 import React from 'react'
-import { Redirect } from 'react-router-dom'
+import { Redirect, useHistory } from 'react-router-dom'
 import { Card, Form, Input, Button } from 'antd'
 import { userLogin } from '../../api/user'
 import { setToken, getToken } from '../../utils/auth'
@@ -22,6 +22,8 @@ const tailLayout = {
 const user = getToken()
 
 const Login = (props) => {
+  // let history = useHistory()
+
   const onFinish = (values) => {
     console.log('Success:', values)
     userLogin({
@@ -29,8 +31,8 @@ const Login = (props) => {
       password: values.password
     }).then(res => {
       console.log(res)
-      setToken(res.data.data.name)
-      // history.push('/')
+      // setToken(res.data.data.name)
+      props.history.push('/')
       console.log('到首页')
     })
   }
