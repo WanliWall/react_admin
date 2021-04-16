@@ -2,7 +2,7 @@
  * @Author: xuejian 
  * @Date: 2021-04-14 14:16:55 
  * @Last Modified by: xuejian
- * @Last Modified time: 2021-04-15 10:42:21
+ * @Last Modified time: 2021-04-16 17:53:11
  */
 import { withRouter } from 'react-router-dom'
 import { Button, Modal } from 'antd'
@@ -32,9 +32,15 @@ const Header = (props) => {
 
   const logout = () => {
     Modal.confirm({
-      content: '确定推出吗？',
+      content: '确定退出吗？',
       onOk: () => {
         removeToken()
+        // props.history.push({
+        //   pathname: '/login',
+        //   state: {
+        //     from: props.location.pathname
+        //   }
+        // })
         props.history.push('/login')
         console.log('到login', props)
       }

@@ -30,15 +30,15 @@ const Login = (props) => {
     }).then(res => {
       console.log(res)
       setToken(res.data.data.name)
-      // props.history.push('/')
-      window.location.href = '/'
+      let RedirectUrl = props.location.state ? props.location.state.from.pathname : '/'
+      props.history.push(RedirectUrl)
       console.log('到首页')
     })
   }
 
-  if(user) {
-    return <Redirect to='/'/>
-  }
+  // if(user) {
+  //   return <Redirect to='/'/>
+  // }
   
   return (
     <div className="login">
