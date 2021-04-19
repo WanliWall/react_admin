@@ -1,7 +1,7 @@
 import React, { Suspense  } from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 // import FrontendAuth from './router/frontendAuth'
-import RouteConf from './router'
+import { RouteConf } from './router'
 
 import Login from './pages/login/login'
 import Admin from './pages/admin/admin'

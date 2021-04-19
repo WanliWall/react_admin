@@ -8,16 +8,16 @@ const NotFound = lazy(() => import('../pages/404/notFound'))
 
 
 const routes = [
-  {
-    path: "/login",
-    component: Login,
-    auth: false
-  },
   // {
   //   path: "/",
   //   component: Admin,
   //   auth: true
   // },
+  {
+    path: "/login",
+    component: Login,
+    auth: false
+  },
   {
     path: "/admin",
     component: Admin,
@@ -35,11 +35,11 @@ const routes = [
       }
     ]
   },
-  {
-    path: '/404',
-    component: NotFound,
-    auth: false
-  }
+  // {
+  //   path: '/404',
+  //   component: NotFound,
+  //   auth: false
+  // }
 ]
 
 export default routes

@@ -2,7 +2,7 @@
  * @Author: xuejian 
  * @Date: 2021-04-14 14:16:55 
  * @Last Modified by: xuejian
- * @Last Modified time: 2021-04-16 17:53:11
+ * @Last Modified time: 2021-04-19 18:47:59
  */
 import { withRouter } from 'react-router-dom'
 import { Button, Modal } from 'antd'
@@ -52,7 +52,7 @@ const Header = (props) => {
   return (
     <div className="header">
       <div className="header-top">
-        <span>{ user }</span>
+        <span className="userInfo">{ user }</span>
         <Button onClick={ logout }>退出</Button>
       </div>
     </div>

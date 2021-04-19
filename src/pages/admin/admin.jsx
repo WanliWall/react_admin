@@ -1,5 +1,5 @@
 import React from 'react'
-import { Redirect, Route, Switch } from 'react-router-dom'
+import { Redirect, BrowserRouter as Router, Switch } from 'react-router-dom'
 import { Layout } from 'antd'
 import { RouteWithSubRoutes } from '../../router'
 
@@ -18,12 +18,15 @@ const Admin = ({ routes }) => {
       <Layout>
         <Header />
         <Content>
+          {
+            routes.map((route, i) => {
+              <div>{route}</div>
+            })
+          }
           <Switch>
-            {
-              routes.map((route, i) => {
-                <RouteWithSubRoutes key={i} {...route} />
-              })
-            }
+            {routes.map((route, i) => (
+              <RouteWithSubRoutes key={i} {...route} />
+            ))}
             {/* <Route path="/admin/user" component={User} /> */}
           </Switch>
         </Content>

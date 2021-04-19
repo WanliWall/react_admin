@@ -5,7 +5,7 @@ import {
 } from 'react-router-dom'
 import routes from './routerConfig'
 
-export default function RouteConf() {
+export function RouteConf() {
   return (
     <Router>
       <Switch>
