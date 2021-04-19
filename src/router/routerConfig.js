@@ -2,30 +2,38 @@ import { lazy } from 'react'
 
 const Login = lazy(() => import('../pages/login/login'))
 const Admin = lazy(() => import('../pages/admin/admin'))
-const Admin1 = lazy(() => import('../pages/admin/admin'))
+const Category = lazy(() => import('../pages/category'))
+const User = lazy(() => import('../pages/user'))
 const NotFound = lazy(() => import('../pages/404/notFound'))
 
 
-const routers = [
+const routes = [
   {
     path: "/login",
     component: Login,
     auth: false
   },
-  {
-    path: "/",
-    component: Admin,
-    auth: true
-  },
+  // {
+  //   path: "/",
+  //   component: Admin,
+  //   auth: true
+  // },
   {
     path: "/admin",
     component: Admin,
-    auth: true
-  },
-  {
-    path: "/admin1",
-    component: Admin1,
-    auth: true
+    auth: true,
+    routes: [
+      {
+        path: "/admin/category",
+        component: Category,
+        auth: true
+      },
+      {
+        path: "/admin/user",
+        component: User,
+        auth: true
+      }
+    ]
   },
   {
     path: '/404',
@@ -34,4 +42,4 @@ const routers = [
   }
 ]
 
-export default routers
+export default routes

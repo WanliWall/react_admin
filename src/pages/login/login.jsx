@@ -30,7 +30,7 @@ const Login = (props) => {
     }).then(res => {
       console.log(res)
       setToken(res.data.data.name)
-      let RedirectUrl = props.location.state ? props.location.state.from.pathname : '/'
+      let RedirectUrl = props.location.state ? props.location.state.from.pathname : '/admin'
       props.history.push(RedirectUrl)
       console.log('到首页')
     })
